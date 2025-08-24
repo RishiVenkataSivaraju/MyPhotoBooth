@@ -243,7 +243,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 5rem;
+  font-size: 3vh;
   font-weight: bold;
   color: white;
   background: rgba(0, 0, 0, 0.5);
@@ -384,6 +384,9 @@ body {
   color: white;
   background-color: #e80707;
   cursor: pointer;
+  text-align: center;
+  margin-left: 42%;
+  margin-top: 2vh;
 }
 
 .download {
@@ -395,6 +398,8 @@ body {
   color: white;
   background-color: #e80707;
   cursor: pointer;
+  text-align: center;
+  margin-left: 1%;
 }
 
 /* .studio-result {
@@ -458,6 +463,18 @@ body {
   transform: translateY(0);
 }
 
+@media(max-width:1200px) {
+  .photostrip-frame {
+    padding: 3vh 3vh;
+    margin-left: 10vw;
+    margin-top: 5vh;
+    margin-right: 10vw;
+    background-color: white;
+    text-align: center;
+    border-radius: 15px;
+  }
+}
+
 @media (max-width: 450px) {
   .studio-container {
     height: 50vh !important;
@@ -509,5 +526,33 @@ body {
     background-color: white;
     text-align: center;
     border-radius: 15px;
+  }
+
+  .reshoot {
+    /* width: 100px;
+  height: 50px; */
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #e80707;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 2vh;
+  }
+
+  .download {
+    padding: 5px 10px;
+    /* width: 200px;
+  height: 50px; */
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #e80707;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 33%;
+    margin-top: 1vh;
   }
 }
