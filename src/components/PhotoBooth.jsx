@@ -24,15 +24,15 @@ const PhotoBooth = () => {
 
   return (
     <div className="booth-container">
-      <div className="booth-header">Dv PhotoBooth</div>
+      <div className="booth-header">💕 Photo Booth 💕</div>
 
       <div className="booth-body">
         <div className="coin-slot">
           {!coinInserted ? (
-            <p className="insert-text" onClick={handleInsertClick}>
-              INSERT
+            <p className="insert-text" onMouseOver={handleInsertClick}>
+              Tap
               <br />
-              COIN HERE
+              To Insert Coin
             </p>
           ) : (
             <div className="coin" onClick={handleCoinClick}></div>

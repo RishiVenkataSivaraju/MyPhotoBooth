@@ -1,36 +1,45 @@
-.booth-container {
+/* .booth-container {
   background: radial-gradient(#000000, #1a1a1a);
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+} */
+body {
+  line-height: 1;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  background-image:
+    url("https://images.unsplash.com/photo-1520624598504-ed830bd895d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvdmUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww");
+  background-size: 200vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .booth-header {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  padding: 10px 30px;
-  color: white;
-  background: radial-gradient(circle, red 60%, darkred);
-  border-radius: 20px;
-  box-shadow: 0 0 10px red;
-  margin-bottom: 20px;
-  letter-spacing: 3px;
+  /* background-color: white; */
+  font-size: 5vh;
+  color: rgb(245, 205, 203);
+  margin-top: 5vh !important;
+  text-align: center;
 }
 
 .booth-body {
   display: flex;
-  border: 4px solid #444;
+  border: 4px solid #bf2d2d;
   border-radius: 10px;
   overflow: hidden;
-  width: 600px;
-  height: 400px;
+  width: 50%;
+  height: 60vh;
+  margin-top: 2%;
+  margin-left: 25%;
   background: #1a1a1a;
 }
 
 .coin-slot {
-  width: 120px;
+  width: 20%;
   background: #111;
   display: flex;
   flex-direction: column;
@@ -83,13 +92,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    #d9232f,
-    #d9232f 10px,
-    #b10f1a 10px,
-    #b10f1a 20px
-  );
+  background: repeating-linear-gradient(90deg,
+      #d9232f,
+      #d9232f 10px,
+      #b10f1a 10px,
+      #b10f1a 20px);
   z-index: 2;
   opacity: 0.95;
   transition: transform 1s ease;
@@ -98,4 +105,30 @@
 
 .curtain.open {
   transform: translateX(-100%);
+}
+
+.insert-text {
+  cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .booth-header {
+    /* background-color: white; */
+    font-size: 3vh;
+    color: rgb(245, 205, 203);
+   margin-top: 5vh !important;
+    text-align: center;
+  }
+
+  .booth-body {
+    display: flex;
+    border: 4px solid #bf2d2d;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 70%;
+    height: 60vh;
+    margin-top: 18%;
+    margin-left: 15%;
+    background: #1a1a1a;
+  }
 }

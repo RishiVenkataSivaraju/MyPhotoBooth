@@ -196,7 +196,7 @@ const PhotoStudio = () => {
             onClick={startPhotoSequence}
             disabled={isCapturing}
           >
-            📸
+           ❤️ 
           </button>
         </div>
       )}
