@@ -33,15 +33,7 @@ body {
   overflow: hidden;
 }
 
-/* .photoStudio {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-} */
+
 
 .studio-container {
   width: 80vh;
@@ -52,14 +44,7 @@ body {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   margin-left: 30vw;
   padding-bottom: 3vh;
-  /* background: #0a0a0a;
-  padding: 20px;
-  border-radius: 3vh;
-  width: 40%;
-  margin-left: 25%;
-  margin-top: 3%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  text-align: center; */
+
 }
 
 .studio-webcam {
@@ -305,13 +290,7 @@ body {
   animation: slideDown 0.6s ease-out;
 }
 
-/* .strip-photo {
-  width: 600px;
-  height: auto;
-  border-radius: 6px;
-  border: 2px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-} */
+
 
 .action-buttons {
   display: flex;
@@ -326,55 +305,7 @@ body {
   overflow: hidden;
 }
 
-/* 
-.result-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgb(205, 23, 23);
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: slideInFromLeft 0.7s ease forwards;
-  padding: 40px 20px;
-} */
-/* 
-.photo-strip {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  animation: slideDown 0.6s ease forwards;
-  margin-bottom: 30px;
-} */
 
-/* .strip-photo {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-} */
-
-/* .result-buttons {
-  display: flex;
-  gap: 20px;
-  position: absolute;
-  top: 40px;
-  right: 40px;
-} */
-
-/* .result-buttons button {
-  padding: 12px 24px;
-  font-size: 16px;
-  background: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: 0.2s;
-} */
 .reshoot {
   /* width: 100px;
   height: 50px; */
@@ -402,42 +333,7 @@ body {
   margin-left: 1%;
 }
 
-/* .studio-result {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
-/* .result-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-direction: column;
-  position: absolute;
-  left: 440px;
-} */
-
-/* .photostrip-frame {
-  position: absolute;
-  left: 100px;
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-} */
-
-/* .studio-result {
-  background-color: #5C4033;
-  height: 70vh;
-  width: 70vh;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 400px;
-  top: 40px;
-} */
 
 /* Animate the full result screen from top */
 .studio-result.slide-in-top {
@@ -477,7 +373,7 @@ body {
 
 @media (max-width: 450px) {
   .body {
-    overflow: scroll;
+    overflow-y: scroll !important;
   }
 
   .studio-container {
@@ -496,8 +392,50 @@ body {
     height: 60vh !important;
     aspect-ratio: 4 / 3;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: scroll !important;
     margin-bottom: 20px;
+  }
+
+  .studio-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  .strip-photo-wrapper {
+    margin: 8px 0;
+    transform: rotate(-1deg);
+    border-radius: 12px;
+    overflow: scroll;
+  }
+
+  .studio-webcam {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    overflow: scroll;
+    margin-bottom: 20px;
+  }
+
+  .result-screen {
+    position: fixed;
+    /* or keep absolute, but fixed works better here */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* full viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* stack content from top */
+    overflow-y: auto;
+    /* enable scrolling */
+    z-index: 10;
+    padding: 2rem 1rem;
+    /* add horizontal padding for mobile */
   }
 
   .filter-btn {
@@ -558,5 +496,25 @@ body {
     text-align: center;
     margin-left: 33%;
     margin-top: 1vh;
+  }
+
+  body {
+    overflow-y: scroll !important;
+    /* enable scroll for mobile */
+  }
+
+  .studio-wrapper {
+    overflow-y: scroll !important;
+    /* enable scroll for mobile */
+  }
+
+  .studio-webcam {
+    overflow: scroll !important;
+    /* enable scroll for mobile */
+  }
+
+  .strip-photo-wrapper {
+    overflow: scroll !important;
+    /* enable scroll for mobile */
   }
 }

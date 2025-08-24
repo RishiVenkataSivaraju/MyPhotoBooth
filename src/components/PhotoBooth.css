@@ -1,11 +1,4 @@
-/* .booth-container {
-  background: radial-gradient(#000000, #1a1a1a);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
+
 body {
   line-height: 1;
   width: 100%;
@@ -112,6 +105,8 @@ body {
 }
 
 @media (max-width: 450px) {
+.body{
+overflow: scroll;}
   .booth-header {
     /* background-color: white; */
     font-size: 3vh;
