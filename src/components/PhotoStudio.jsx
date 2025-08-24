@@ -71,35 +71,40 @@ const PhotoStudio = () => {
 
   // Capture photo using latest filter from ref
   const takePhoto = async () => {
-    const filter = selectedFilterRef.current; // always latest filter
-    const video = webcamRef.current?.video;
-    if (!video || video.readyState < 2) return;
+  const filter = selectedFilterRef.current; // always latest filter
+  const video = webcamRef.current?.video;
+  if (!video || video.readyState < 2) return;
 
-    const canvas = document.createElement("canvas");
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext("2d");
+  const canvas = document.createElement("canvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext("2d");
 
-    ctx.filter = getCssFilter(filter);
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  ctx.filter = getCssFilter(filter);
 
-    if (filter.toLowerCase() === "80s") {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = "/images/grain.png";
-      await new Promise((r) => (img.onload = r));
+  // Mirror fix: flip horizontally while drawing
+  ctx.save();
+  ctx.scale(-1, 1); // horizontal flip
+  ctx.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+  ctx.restore();
 
-      ctx.globalAlpha = 0.2;
-      ctx.globalCompositeOperation = "overlay";
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  if (filter.toLowerCase() === "80s") {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = "/images/grain.png";
+    await new Promise((r) => (img.onload = r));
 
-      ctx.globalAlpha = 1;
-      ctx.globalCompositeOperation = "source-over";
-    }
+    ctx.save();
+    ctx.globalAlpha = 0.2;
+    ctx.globalCompositeOperation = "overlay";
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    ctx.restore();
+  }
 
-    const dataUrl = canvas.toDataURL("image/jpeg");
-    setPhotos((prev) => [...prev, { src: dataUrl, filter }]);
-  };
+  const dataUrl = canvas.toDataURL("image/jpeg");
+  setPhotos((prev) => [...prev, { src: dataUrl, filter }]);
+};
+
 
   const countdownStep = async (value) => {
     setCountdown(value);
