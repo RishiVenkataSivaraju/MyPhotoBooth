@@ -476,6 +476,10 @@ body {
 }
 
 @media (max-width: 450px) {
+  .body {
+    overflow: scroll;
+  }
+
   .studio-container {
     height: 50vh !important;
     width: 70vw;
