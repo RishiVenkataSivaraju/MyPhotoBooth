@@ -141,7 +141,7 @@ const PhotoStudio = () => {
 
     const link = document.createElement("a");
     link.href = dataURL;
-    link.download = "dvBooth-strip.jpg";
+    link.download = "Booth-strip.jpg";
     link.click();
   };
 
@@ -217,7 +217,7 @@ const PhotoStudio = () => {
               </div>
             ))}
             <p className="photostrip-caption">
-              dvBooth •{" "}
+               {" "}
               {new Date().toLocaleDateString("en-IN", {
                 day: "numeric",
                 month: "long",
